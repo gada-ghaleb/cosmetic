@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti</title>
+    <!--render all element normally-->
+    <link rel="stylesheet" href="css/reset.css">
+    <!--font awesome library-->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!--main template css file-->
+    <link rel="stylesheet" href="css/styles.css">
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2? family=Katibeh&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yellowtail&display=swap" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <!--Form-->  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('NABhJNREgzTS0z2VW');
+    })();
+</script>
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = Math.random() * 100000 | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm('service_yddiy0b', 'template_vbef61y', this)
+                .then(function() {
+                    alert('Messaggio inviato con sucesso!');
+                    document.getElementById('user_name').value = "";
+                    document.getElementById('user_email').value = "";
+                    document.getElementById('message').value = "";
+                    console.log('SUCCESS!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        });
+    }
+</script> 
+</head>
+<body>
+<!--start header-->
+<div class="header">
+    <div class="container">
+        <a href="#" class="logo">Cosmetic</a>
+        <div class="burger">
+            <label for="burger"><i class="fas fa-bars toggle-menu"></i></label>
+            <input id="burger" type="checkbox">
+            <ul class="main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="submenu"><a class="cosmetici" href="#">Cosmetici</a>
+                <!--start menu-->
+                <div class="menu">
+                    <ul class="links">
+                        <li><a href="curaviso.html">Viso</a></li>
+                        <li><a href="curacapelli.html">Capelli</a></li>
+                        <li><a href="curacorpo.html">Corpo</a></li>
+                        <li><a href="curamani.html">Mani</a></li>
+                    </ul>
+                </div>
+                <!--end menu-->
+                </li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--end header-->
+<!--End Contact-->
+<div class="contact" id="contatti"> 
+    <div class="container">
+        <h2 class="main-title" style="text-align:center;">Contatti</h2>
+        <div class="content">
+            <form id="contact-form">
+                <input type="hidden" name="contact_number">
+                <input class="main-input" type="text" name="user_name" id="user_name" placeholder="Your Name" />
+                <input class="main-input" type="email" name="user_email" id="user_email" placeholder="Your Email" />
+                <textarea class="main-input" name="message"  id="message" placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Messsage">
+            </form>
+        </div>
+    </div>
+</div>
+<!--End contact -->
+<!--start footer -->
+<div class="footer">
+    <div class="container" id="contatti">
+        <div class="box">
+            <div class="text">
+                <h3>Gada Ghaleb</h3>
+                <p>Seguimi per essere sempre aggiornato sulle ultime novità.</p>  
+            </div>
+            <ul class="main-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="curaviso.html">Viso</a></li>
+                <li><a href="curacapelli.html">Capelli</a></li>
+                <li><a href="curacorpo.html">Corpo</a></li>
+                <li><a href="curamani.html">Mani</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+              </ul>
+        </div>
+        </div>
+    <p class="copyright">
+        &copy; 2022 <span>Gada Ghaleb</span>. Tutti i diritti riservati.</p> 
+</div>
+<!--end footer-->
+</body>
+</html>
